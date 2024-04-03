@@ -21,7 +21,7 @@ void initializeSDL() {
     }
 
     // Load default font provided by SDL_ttf
-    font = TTF_OpenFont(NULL, 24);
+    font = TTF_OpenFont("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 24);
     if (font == NULL) {
         fprintf(stderr, "Unable to load default font: %s\n", TTF_GetError());
         TTF_Quit();

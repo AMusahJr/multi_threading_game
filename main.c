@@ -166,6 +166,13 @@ int main() {
     // Initialize SDL
     initializeSDL();
 
+    // Load font
+    TTF_Font* font = TTF_OpenFont("/usr/share/fonts/truetype/liberation/LiberationMono-Bold.ttf", 24);
+    if (!font) {
+        printf("Unable to load font: %s\n", TTF_GetError());
+        return 1; // Return an error code indicating font loading failure
+    }
+
     // Create mutex for thread synchronization
     mutex = SDL_CreateMutex();
 
@@ -210,3 +217,4 @@ int main() {
 
     return 0;
 }
+
