@@ -1,6 +1,8 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <stdio.h>
+#include "sdl_utils.h"
+#include "shared.h"
 
 #define WIDTH 640
 #define HEIGHT 480
