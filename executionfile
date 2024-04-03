@@ -1,0 +1,45 @@
+To reference functions or variables declared in the `sdl_ttf_example.c` file from the `pingpong.c` file, you need to create header files (.h) for shared declarations and definitions between the two files. Here's how you can do it:
+
+1. Create a header file named `sdl_ttf_example.h`.
+2. Declare any functions or variables that you want to share between `sdl_ttf_example.c` and `pingpong.c` in the `sdl_ttf_example.h` file.
+3. Include `sdl_ttf_example.h` in both `sdl_ttf_example.c` and `pingpong.c`.
+
+Here's a basic example of how you can structure your files:
+
+`sdl_ttf_example.h`:
+```c
+#ifndef SDL_TTF_EXAMPLE_H
+#define SDL_TTF_EXAMPLE_H
+
+// Declare any functions or variables you want to share between files
+void someFunction(void);
+
+#endif // SDL_TTF_EXAMPLE_H
+```
+
+`sdl_ttf_example.c`:
+```c
+#include "sdl_ttf_example.h"
+
+void someFunction(void) {
+    // Function definition
+}
+```
+
+`pingpong.c`:
+```c
+#include "sdl_ttf_example.h"
+
+int main() {
+    someFunction(); // Call the function declared in sdl_ttf_example.c
+    return 0;
+}
+```
+
+Make sure to compile all the source files together when building your executable. For example:
+
+```bash
+gcc -o game pingpong.c sdl_ttf_example.c -lSDL2 -lSDL2_ttf -pthread
+```
+
+This will compile both `pingpong.c` and `sdl_ttf_example.c` together into the `game` executable.
